@@ -36,7 +36,7 @@ def draw_line_plot():
 def draw_bar_plot():
     # Copy and modify data for monthly bar plot
     #group the data by month
-    df_bar = df.groupby(pd.Grouper(freq="ME"))
+    df_bar = df.groupby(pd.Grouper(freq="M"))
     #to each group find the mean
     df_bar = df_bar.mean()
 
@@ -82,7 +82,7 @@ def draw_box_plot():
     # Draw box plots (using Seaborn)
     fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize=(20,6))
     sns.boxplot(data = df_box, x = 'year', y = 'value', ax=ax[0], hue='year', 
-                palette=sns.color_palette(n_colors =4), legend=False,
+                palette=sns.color_palette(n_colors =4),
                 fliersize=1).set(
         ylabel = 'Page Views',
         xlabel = 'Year',
